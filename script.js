@@ -25,27 +25,13 @@ iconX.addEventListener("click", () => {
 
 features.addEventListener("click", () => {
   featuresBox.classList.toggle("closed");
-  open = !open;
-  if (open === true) {
-    document.querySelector(".arrow-up").style.display = "block";
-    document.querySelector(".arrow-down").style.display = "none";
-  } else {
-    document.querySelector(".arrow-up").style.display = "none";
-    document.querySelector(".arrow-down").style.display = "block";
-  }
+
+  arrowToggle();
 });
 
 company.addEventListener("click", () => {
   companyBox.classList.toggle("closed");
-  open = !open;
-
-  if (open === true) {
-    document.querySelector(".arrow-up-company").style.display = "block";
-    document.querySelector(".arrow-down-company").style.display = "none";
-  } else {
-    document.querySelector(".arrow-up-company").style.display = "none";
-    document.querySelector(".arrow-down-company").style.display = "block";
-  }
+  arrowToggle("-company");
 });
 
 //DESKTOP
@@ -58,25 +44,21 @@ const desktopFeaturesBox = document.querySelector(".features-box-desktop");
 desktopFeatures.addEventListener("click", () => {
   desktopFeaturesBox.classList.toggle("closed-desktop");
 
-  open = !open;
-  if (open === true) {
-    document.querySelector(".arrow-up-features").style.display = "block";
-    document.querySelector(".arrow-down-features").style.display = "none";
-  } else {
-    document.querySelector(".arrow-up-features").style.display = "none";
-    document.querySelector(".arrow-down-features").style.display = "block";
-  }
+  arrowToggle("-features");
 });
 
 desktopCompany.addEventListener("click", () => {
   desktopCompanyBox.classList.toggle("closed-desktop");
+  arrowToggle("-desktop");
+});
 
+function arrowToggle(classname = "") {
   open = !open;
   if (open === true) {
-    document.querySelector(".arrow-up-desktop").style.display = "block";
-    document.querySelector(".arrow-down-desktop").style.display = "none";
+    document.querySelector(`.arrow-up${classname}`).style.display = "block";
+    document.querySelector(`.arrow-down${classname}`).style.display = "none";
   } else {
-    document.querySelector(".arrow-up-desktop").style.display = "none";
-    document.querySelector(".arrow-down-desktop").style.display = "block";
+    document.querySelector(`.arrow-up${classname}`).style.display = "none";
+    document.querySelector(`.arrow-down${classname}`).style.display = "block";
   }
-});
+}
